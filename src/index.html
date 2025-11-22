@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game - Truffle Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠 Memory Game dApp</h1>
+            <p class="subtitle">Powered by Truffle & Ganache</p>
+        </header>
+
+        <!-- Wallet Connection Section -->
+        <div class="wallet-section">
+            <button id="connectBtn" class="btn btn-primary">Connect Wallet</button>
+            <div id="walletInfo" class="wallet-info hidden">
+                <p>Connected: <span id="walletAddress"></span></p>
+                <p>Network: <span id="networkName">Ganache Local</span></p>
+            </div>
+        </div>
+
+        <!-- Game Section -->
+        <div class="game-section">
+            <div class="game-controls">
+                <button id="newGameBtn" class="btn btn-success">New Game</button>
+                <div class="game-stats">
+                    <p>Moves: <span id="moves">0</span></p>
+                    <p>Time: <span id="timer">0</span>s</p>
+                </div>
+            </div>
+            
+            <div id="gameBoard" class="game-board"></div>
+            
+            <div id="gameResult" class="game-result hidden">
+                <h3>🎉 Game Complete!</h3>
+                <p>Your Score: <span id="finalScore">0</span></p>
+                <button id="submitScoreBtn" class="btn btn-primary">Submit Score to Blockchain</button>
+            </div>
+        </div>
+
+        <!-- Blockchain Section -->
+        <div class="blockchain-section">
+            <div class="score-display">
+                <h3>Your Best Score</h3>
+                <p class="best-score" id="bestScore">--</p>
+                <button id="refreshScoreBtn" class="btn btn-secondary">Refresh</button>
+            </div>
+
+            <div class="leaderboard">
+                <h3>🏆 Top 5 Leaderboard</h3>
+                <div id="leaderboardList">
+                    <p class="loading">Connect wallet to view leaderboard</p>
+                </div>
+                <button id="refreshLeaderboardBtn" class="btn btn-secondary">Refresh Leaderboard</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with Truffle Suite • Contract: <span id="contractAddress">Not Loaded</span></p>
+        </footer>
+    </div>
+
+    <!-- Load ethers.js instead of Web3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
